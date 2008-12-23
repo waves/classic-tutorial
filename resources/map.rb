@@ -6,7 +6,8 @@ module Blog
       on( :get, [ ] ) { redirect "/entries" }
       
       on( :get, [ 'entries' ] ) do
-        view( :entry ).list( :entries => [] )
+        entries = controller( :entry ).all
+        view( :entry ).list( :entries => entries )
       end
       
     end
