@@ -3,7 +3,11 @@ module Blog
     class Map
       include Waves::Resources::Mixin
       
-      on( true ) { "I am Blog!" }
+      on( :get, [ ] ) { redirect "/entries" }
+      
+      on( :get, [ 'entries' ] ) do
+        view( :entry ).list( :entries => [] )
+      end
       
     end
   end

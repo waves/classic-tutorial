@@ -1,0 +1,7 @@
+h1 "Entries"
+
+ul do
+  @entries.each do |entry|
+    li entry.title
+  end
+end
