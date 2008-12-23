@@ -1,7 +1,7 @@
-h1 "Entries"
-
-ul do
-  @entries.each do |entry|
-    li entry.title
+layout :default, :title => 'Blog Entries' do
+  ul do
+    @entries.each do |entry|
+      li { a entry.title, :href => "/entry/#{entry.name}" }
+    end
   end
 end
