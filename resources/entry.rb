@@ -7,6 +7,11 @@ module Blog
         view.list( :entries => entries )
       end
       
+      on( :get, [ 'entry', :name ] ) do
+        entry = controller.find( captured.name )
+        view.show( :entry => entry )
+      end
+      
     end
   end
 end
