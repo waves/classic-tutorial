@@ -35,6 +35,12 @@ module Blog
         controller.delete( captured.name )
       end
       
+      on :post, :comment => [ 'entry', :name ] do
+        entry = controller.find( captured.name )
+        entry.add_comment( Models::Comment.create( query.comment.to_hash ) )
+        redirect request.path
+      end
+      
     end
   end
 end
