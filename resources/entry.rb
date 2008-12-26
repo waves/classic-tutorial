@@ -22,6 +22,10 @@ module Blog
         redirect "/entry/#{entry.name}"
       end
       
+      on :delete, [ 'entry', :name ] do
+        controller.delete( captured.name )
+      end
+      
     end
   end
 end
