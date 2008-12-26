@@ -12,6 +12,16 @@ module Blog
         view.show( :entry => entry )
       end
       
+      on :get, [ 'entry', :name ], :query => { :mode => 'edit' } do
+        entry = controller.find( captured.name )
+        view.edit( :entry => entry )
+      end
+      
+      on :put, [ 'entry', :name ] do
+        entry = controller.update( captured.name )
+        redirect "/entry/#{entry.name}"
+      end
+      
     end
   end
 end
