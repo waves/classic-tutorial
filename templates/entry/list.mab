@@ -1,4 +1,7 @@
 layout :default, :title => 'Blog Entries' do
+  div.create do
+    h2 { a 'Create a new entry', :href => "/entry" }
+  end
   @entries.each do |entry|
     div.entry do
       view :entry, :full, :entry => entry

@@ -7,6 +7,15 @@ module Blog
         view.list( :entries => entries )
       end
       
+      on( :post, [ 'entries' ] ) do
+        entry = controller.create
+        redirect "/entry/#{entry.name}"
+      end
+      
+      on( :get, [ 'entry' ] ) do
+        view.new
+      end
+      
       on( :get, [ 'entry', :name ] ) do
         entry = controller.find( captured.name )
         view.show( :entry => entry )

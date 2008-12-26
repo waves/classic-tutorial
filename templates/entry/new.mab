@@ -1,0 +1,14 @@
+layout :default, :title => 'New Entry' do
+  
+  form :action => "/entries", :method => 'POST' do
+    label 'Title'; br
+    input :type => :text, :name => 'entry.title', :size => 50; br
+    label 'URL name'; br
+    input :type => :text, :name => 'entry.name', :size => 50; br
+    label 'Content'; br
+    textarea :name => 'entry.content', :rows => 20, :cols => 70; br
+    input :type => :submit, :value => 'Save'
+    a 'Cancel', :href => "/entries"
+  end
+  
+end
