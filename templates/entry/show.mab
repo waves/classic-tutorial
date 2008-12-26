@@ -2,6 +2,11 @@ layout :default, :title => @entry.title do
   
   div.entry do
     view :entry, :full, :entry => @entry
+    p do
+      a 'Edit', :href => "/entry/#{@entry.name}?mode=edit"
+      text '&nbsp;'
+      a.delete 'Delete', :href => "/entry/#{@entry.name}"
+    end
   end
   
 end
