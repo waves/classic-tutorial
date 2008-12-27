@@ -1,7 +1,10 @@
 layout :default, :title => 'Blog Entries' do
-  ul do
-    @entries.each do |entry|
-      li { a entry.title, :href => "/entry/#{entry.name}" }
+  @entries.each do |entry|
+    div.entry do
+      view :entry, :full, :entry => entry
+      p do
+        a entry.comment_number, :href => "/entry/#{entry.name}"
+      end
     end
   end
 end
